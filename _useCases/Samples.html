@@ -8,68 +8,77 @@ active: true
 
 <!DOCTYPE HTML>
 <html>
-   {% include head.html %}
-   <body>
-      {% include header.html %}
-      {% include navbar.html %}
-      <div class="page-content">
-         <div class="wrapper">
-            <div id="main-content-wrapper" class="outer">
-               <section id="main_content" class="inner">
-                 <h1>Use Cases for {{page.name}}</h1>
-                 {% assign group = site.groups | where:"identifier", page.group %}
-                 {% for g in group %}
-                 <p>The following use cases were developed by the <a href="{{g.url}}">{{ g.name }}</a> group.
-                 {% endfor %}
+{% include head.html %}
+<body>
+  {% include header.html %}
+  {% include navbar.html %}
+  <div class="page-content">
+    <div class="wrapper">
+      <div id="main-content-wrapper" class="outer">
+        <section id="main_content" class="inner">
+          <h1>Use Cases for {{page.name}}</h1>
+          {% assign group = site.groups | where:"identifier", page.group %}
+          {% for g in group %}
+          <p>The following use cases were developed by the <a href="{{g.url}}">{{ g.name }}</a> group.
+            {% endfor %}
 
-                     <h3>Use Cases</h3>
-                      <ol>
-                          <li>Rare diseases biobanks should be able to crawl the BioSamples database to identify all the published (and searchable) datasets
-                              derived from samples they have provided.</li>
-                          <li>Public archives should be able to crawl rare disease Biobank websites, in order to identify samples that are known to have public
-                              accessions in the BioSamples database AND that are publically available, and thereby link public samples
-                              to a provider (“where can I get more of this sample?”).</li>
-                          <li>Public archives should be able to crawl rare disease Biobank websites, in order to identify sample metadata description.</li>
-                          <li>BioSamples database should be able to crawl manually curated high quality sample metadata available in repositories linked to BioSamples, 
-                              like the MarRef database, and use that information to curate BioSamples </li>
-                      </ol>
+            <h3>Use Cases</h3>
+            <h4>Data Discovery</h4>
+            <p>The following examples are derived from <a href="https://www.ga4gh.org/">GA4GH</a>.</p>
+            <ol>
+              <li>Find all biological samples for male individuals</li>
+              <li>Find all individuals with an AML diagnosis AND Down's Syndrome (trisomy 21)</li>
+              <li>Find all individuals originating from a specified geographical location by latitude/longitude</li>
+              <li>Find all datasets for which individuals have consented to code X</li>
+            </ol>
+            <h4>Data Exchange</h4>
+            <ol>
+              <li>Rare diseases biobanks should be able to crawl the BioSamples database to identify all the published (and searchable) datasets
+                derived from samples they have provided.</li>
+                <li>Public archives should be able to crawl rare disease Biobank websites, in order to identify samples that are known to have public
+                  accessions in the BioSamples database AND that are publically available, and thereby link public samples
+                  to a provider (“where can I get more of this sample?”).</li>
+                  <li>Public archives should be able to crawl rare disease Biobank websites, in order to identify sample metadata description.</li>
+                  <li>BioSamples database should be able to crawl manually curated high quality sample metadata available in repositories linked to BioSamples,
+                    like the MarRef database, and use that information to curate BioSamples </li>
+                  </ol>
 
-                      <h5>Assumptions</h5>
-                      <ol>
-                          <li>Each sample provided by a biobank has an identifier that is assigned by the biobank to identify a specific sample.</li>
-                          <li>Each sample reported in a public archive or used to generate a public dataset has a public, BioSamples database accession.</li>
-                          <li>Each sample provided in an external highly curated repository could have an identifier assigned by the repository itself.</li>
-                      </ol>
+                  <h5>Assumptions</h5>
+                  <ol>
+                    <li>Each sample provided by a biobank has an identifier that is assigned by the biobank to identify a specific sample.</li>
+                    <li>Each sample reported in a public archive or used to generate a public dataset has a public, BioSamples database accession.</li>
+                    <li>Each sample provided in an external highly curated repository could have an identifier assigned by the repository itself.</li>
+                  </ol>
 
-                      <p>
-                          Given these use cases and assumptions, we will use Bioschemas to describe sample links and retrieve curated information from different sources. 
-                          The main challenge is therefore the identification of links between samples exposed in different repositories (Biobank, Curated repository and BioSamples) based
-                          on repository identifier. 
-                          This is not always possible without considerable additional curation effort, but of the 5 million samples
-                          in the BioSamples database, over 4 million declare either a ‘synonym’, ‘sample source name’ or ‘source name’ attribute,
-                          frequently used to encode the original biobank sample name. Exposing these in a structured manner through the BioSamples
-                          database would allow Biobanks to crawl and analyse this content, marrying sample that are recognised with their own
-                          identifiers.
-                      </p>
+                  <p>
+                    Given these use cases and assumptions, we will use Bioschemas to describe sample links and retrieve curated information from different sources.
+                    The main challenge is therefore the identification of links between samples exposed in different repositories (Biobank, Curated repository and BioSamples) based
+                    on repository identifier.
+                    This is not always possible without considerable additional curation effort, but of the 5 million samples
+                    in the BioSamples database, over 4 million declare either a ‘synonym’, ‘sample source name’ or ‘source name’ attribute,
+                    frequently used to encode the original biobank sample name. Exposing these in a structured manner through the BioSamples
+                    database would allow Biobanks to crawl and analyse this content, marrying sample that are recognised with their own
+                    identifiers.
+                  </p>
 
-                      <p>
-                          In those cases where a single sample entity is not exposable, like the BioBank Directory use case defined 
-                          during the sample hackathon (meeting notes <a href="https://docs.google.com/document/d/1xKFFLXcc6Db5wSuifOETpQSIFd73GLL2__2BNK9d4tk/edit#heading=h.aqwqtawny32k">here</a>),
-                          you should probably use a different BioSchemas profile/entity, like the DataCatalog or the DataRecord. You can find more examples on how BBMRI-ERIC directory used
-                          BioSchemas for their need in this <a href="https://github.com/BioSchemas/specifications/blob/master/DataCatalog/examples/bbmri-eric-ID-CZ_MMCI_jsonld.json">DataCatalog</a> and 
-                          <a href="https://github.com/BioSchemas/specifications/blob/master/DataRecord/examples/bbmri-eric-ID-CZ_MMCI-collection-LTS_jsonld.json">DataRecord</a> examples.
-                      </p>
+                  <p>
+                    In those cases where a single sample entity is not exposable, like the BioBank Directory use case defined
+                    during the sample hackathon (meeting notes <a href="https://docs.google.com/document/d/1xKFFLXcc6Db5wSuifOETpQSIFd73GLL2__2BNK9d4tk/edit#heading=h.aqwqtawny32k">here</a>),
+                    you should probably use a different BioSchemas profile/entity, like the DataCatalog or the DataRecord. You can find more examples on how BBMRI-ERIC directory used
+                    BioSchemas for their need in this <a href="https://github.com/BioSchemas/specifications/blob/master/DataCatalog/examples/bbmri-eric-ID-CZ_MMCI_jsonld.json">DataCatalog</a> and
+                    <a href="https://github.com/BioSchemas/specifications/blob/master/DataRecord/examples/bbmri-eric-ID-CZ_MMCI-collection-LTS_jsonld.json">DataRecord</a> examples.
+                  </p>
 
-               </section>
+                </section>
+              </div>
             </div>
-        </div>
-    </div>
-    {% include footer.html %}
+          </div>
+          {% include footer.html %}
 
-    
-    
-    
 
-    </body>
 
-    </html>
+
+
+        </body>
+
+        </html>
