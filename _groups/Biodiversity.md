@@ -39,4 +39,5 @@ members:
     - RicardoArcila
     - ylebras
     - RomanBaum
+    - CarlBoettiger
 ---
