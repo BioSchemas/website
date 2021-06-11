@@ -55,14 +55,12 @@
             {% for current_mg in marginality_list %}
             {% assign props_list = page.mapping | where: 'marginality', current_mg | sort: 'property' %}
 
-            {%if props_list.size > 0%}
             <tr class="cardinality">
                 <td colspan="6">
                     Marginality: <b>{{current_mg}}.</b>
                 </td>
             </tr>
-            {%endif%}
-
+            {% include standard_properties.html %}
             {% for prop in props_list %}
             <tr>
                 {% if prop.type == "bioschemas" %}

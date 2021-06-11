@@ -1,0 +1,159 @@
+<tr>
+  <td class="property-column">@context</td>
+  <td>URL</td>
+  <td class="description-column">Used to provide the context (namespaces) for the JSON-LD file. Not needed in other serialisations.</td>
+  <td>ONE</td>
+  <td class="control-vocabulary-column"></td>
+  <td class="example-column">
+      <!-- Example modal starts here -->
+      <div class="example-button">
+          <span class="tooltiptext">View <strong>&#8810@context&#8811</strong> example</span>
+          <button type="button" class="btn btn-bioschema" data-toggle="modal" data-target="#myModalContext"><i class="fas fa-file-code"></i></button>
+      </div>
+      <!-- Modal -->
+      <div id="myModalContext" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-large">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+              <div class="modal-header">
+                  <span class="modal-title">Property <strong>&#8810@context&#8811</strong> example</span>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div id="{{current_mg}}-example-num-{{forloop.index}}" class="example-code">
+                  {% highlight javascript %}
+                  {
+                    "@context": "https://schema.org/"
+                  }{% endhighlight %}
+                  <button type="button" class="btn btn-primary btn-copy" data-clipboard-target="#{{current_mg}}-example-num-{{forloop.index}}"><i class="fas fa-copy"></i></button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
+  </td>
+</tr>
+<tr>
+  <td class="property-column">@type</td>
+  <td>Text</td>
+  <td class="description-column">Schema.org/Bioschemas class for the resource declared using JSON-LD syntax. For other serialisations please use the appropriate mechanism.<br/>While it is permissible to provide multiple types, it is preferred to use a single type.</td>
+  <td>MANY</td>
+  <td class="control-vocabulary-column"></td>
+  <td class="example-column">
+      <!-- Example modal starts here -->
+      <div class="example-button">
+          <span class="tooltiptext">View <strong>&#8810@type&#8811</strong> example</span>
+          <button type="button" class="btn btn-bioschema" data-toggle="modal" data-target="#myModalid"><i class="fas fa-file-code"></i></button>
+      </div>
+      <!-- Modal -->
+      <div id="myModalid" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-large">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+              <div class="modal-header">
+                  <span class="modal-title">Property <strong>&#8810@type&#8811</strong> example</span>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div id="{{current_mg}}-example-num-{{forloop.index}}" class="example-code">
+                  {% highlight javascript %}
+                  {
+                    "@type": "{{page.parent_type}}"
+                  }{% endhighlight %}
+                  <button type="button" class="btn btn-primary btn-copy" data-clipboard-target="#{{current_mg}}-example-num-{{forloop.index}}"><i class="fas fa-copy"></i></button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
+  </td>
+</tr>
+<tr>
+  <td class="property-column">@id</td>
+  <td>IRI</td>
+  <td class="description-column">Used to distinguish the resource being described in JSON-LD. For other serialisations use the appropriate approach.</td>
+  <td>ONE</td>
+  <td class="control-vocabulary-column"></td>
+  <td class="example-column">
+      <!-- Example modal starts here -->
+      <div class="example-button">
+          <span class="tooltiptext">View <strong>&#8810@id&#8811</strong> example</span>
+          <button type="button" class="btn btn-bioschema" data-toggle="modal" data-target="#myModalType"><i class="fas fa-file-code"></i></button>
+      </div>
+      <!-- Modal -->
+      <div id="myModalType" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-large">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+              <div class="modal-header">
+                  <span class="modal-title">Property <strong>&#8810@id&#8811</strong> example</span>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div id="{{current_mg}}-example-num-{{forloop.index}}" class="example-code">
+                  {% highlight javascript %}
+                  {
+                    "@id": "http://example.com/entity/A12345"
+                  }{% endhighlight %}
+                  <button type="button" class="btn btn-primary btn-copy" data-clipboard-target="#{{current_mg}}-example-num-{{forloop.index}}"><i class="fas fa-copy"></i></button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
+  </td>
+</tr>
+<tr>
+  <td class="property-column">dct:conformsTo</td>
+  <td>IRI</td>
+  <td class="description-column">Used to state the Bioschemas profile that the markup relates to. The versioned URL of the profile must be used.<br/>Note that we use a CURIE in the table here but the full URL for Dublin Core terms must be used in the markup, see example.</td>
+  <td>ONE</td>
+  <td class="control-vocabulary-column"></td>
+  <td class="example-column">
+      <!-- Example modal starts here -->
+      <div class="example-button">
+          <span class="tooltiptext">View <strong>&#8810dct:conformsTo&#8811</strong> example</span>
+          <button type="button" class="btn btn-bioschema" data-toggle="modal" data-target="#myModalconformsTo"><i class="fas fa-file-code"></i></button>
+      </div>
+      <!-- Modal -->
+      <div id="myModalconformsTo" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-large">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+              <div class="modal-header">
+                  <span class="modal-title">Property <strong>&#8810dct:conformsTo&#8811</strong> example</span>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                  <div id="{{current_mg}}-example-num-{{forloop.index}}" class="example-code">
+                  {% highlight javascript %}
+                  {
+                    "http://purl.org/dc/terms/conformsTo": {
+                      "@id": "https://bioschemas.org{{page.url}}",
+                      "@type": "CreativeWork"
+                    }
+                  }{% endhighlight %}
+                  <button type="button" class="btn btn-primary btn-copy" data-clipboard-target="#{{current_mg}}-example-num-{{forloop.index}}"><i class="fas fa-copy"></i></button>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
+  </td>
+</tr>
