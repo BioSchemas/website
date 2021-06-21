@@ -32,6 +32,7 @@
       "keywords": ["RIR"],
       "url": "https://fairsharing.org/",
       "nodes": "UK",
+      "sitemap": "https://fairsharing.org/sitemap.xml",
       "profiles": [
         {
           "profileName": "DataCatalog",
@@ -41,7 +42,8 @@
         {
           "profileName": "Dataset",
           "conformsTo": "0.1",
-          "exampleURL": "https://fairsharing.org/"
+          "exampleURL": "https://fairsharing.org/",
+          "highlight": "Over 3,000 datasets"
         }
       ]
     },
