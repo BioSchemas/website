@@ -1200,6 +1200,27 @@
           "highlight": "Over 6,000 diseases"
         }
       ]
+    },
+    {
+      "name": "InterPro",
+      "description": "Classification of protein families",
+      "keywords": ["CDR"],
+      "url": "https://www.ebi.ac.uk/interpro/",
+      "nodes": "EBI",
+      "sitemap": "https://www.ebi.ac.uk/interpro/sitemap/interpro.sitemap.txt",
+      "profiles": [
+        {
+          "profileName": "Dataset",
+          "conformsTo": "0.3-RELEASE",
+          "exampleURL": "https://www.ebi.ac.uk/interpro/"
+        },
+        {
+          "profileName": "ProteinAnnotation",
+          "conformsTo": "0.6-DRAFT",
+          "exampleURL": "https://www.ebi.ac.uk/interpro/entry/InterPro/IPR015252/",
+          "highlight": "Over 38,000 protein entries"
+        }
+      ]
     }
   ]
 }
